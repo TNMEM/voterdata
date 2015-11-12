@@ -14,6 +14,7 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
 
+	<script type="text/javascript" src="php_crud_api_transform.js"></script>
 	<script type="text/javascript" src="voter_config.js"></script>
 	<script type="text/javascript" src="voter.js"></script>
 

@@ -45,8 +45,9 @@ $(document).ready(function() {
 		}]
 	});
 
-	// get data
-	//findAll('voter_php_crud_api.php/voters?order=id&page=1,5&transform=1');
+	// get data ... server or local transform of json to object form...
+	//findAll('voter_php_crud_api.php/voters?order=id&page=1,5000&transform=1');
+	//findAll('voter_php_crud_api.php/voters?order=id&page=1,5000');
 	function findAll(search) {
 		$.ajax({
 			type: 'GET',
@@ -55,7 +56,9 @@ $(document).ready(function() {
 			success: function(response) {
 				console.log('Success: ', response);
 				dataTable.clear();
-				dataTable.rows.add(response['voters']);
+				// ... server or local transform of json to objects...
+				//dataTable.rows.add(response['voters']);
+				dataTable.rows.add(php_crud_api_transform(response)['voters']);
 				dataTable.draw();
 			},
 			error: function(xhr, type) {
@@ -69,7 +72,7 @@ $(document).ready(function() {
 	// when return key pressed in search box, get url in order and refresh dataTable.
 	$('.search-input-text').on('keypress', function(ev) { // for text boxes
 		if (ev.keyCode == 13) {
-			var outPut = rootURL + "/voters?order=id&page=1,5000&transform=1";
+			var outPut = rootURL + "/voters?order=id&page=1,5000";
 			var n = $('#name').val().trim();
 			var f = $('#first').val().trim();
 			var a = $('#address').val().trim();
