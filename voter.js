@@ -2,7 +2,12 @@ $(document).ready(function() {
 
 	var rootURL = 'voter_php_crud_api.php';
 
+	// using "scroller" datatables extension and no paging.
+	// ... scroller, scrollY, deferRender are for that extension.
 	var dataTable = $('#voterdata').DataTable({
+		"scroller": true,
+		"scrollY": 200,
+		"deferRender": true,
 		"columns": [{
 			"data": "ID"
 		}, {

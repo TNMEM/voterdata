@@ -9,10 +9,12 @@
 <head>
 	<title>Voter Data</title>
 
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" />
-
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/scroller/1.4.0/css/scroller.dataTables.min.css"/>
+	 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/scroller/1.4.0/js/dataTables.scroller.min.js"></script>
 
 	<script type="text/javascript" src="php_crud_api_transform.js"></script>
 	<script type="text/javascript" src="voter_config.js"></script>
