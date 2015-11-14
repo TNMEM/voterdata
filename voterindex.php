@@ -21,27 +21,27 @@
 	<script type="text/javascript" src="voter.js"></script>
 
 	<style>
-		.container {
-			margin: 0 auto;
-			max-width: 100%;
-		}
-		
-		.header {
-			margin: 100px auto;
-			line-height: 30px;
-			max-width: 100%;
-		}
-		
 		body {
 			background: #ffffff;
 			color: #686868;
 			font: 70%/1.45em "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, sans-serif;
 		}
+
+		.header {
+			margin: 10px auto;
+			line-height: 30px;
+			max-width: 100%;
+		}
+		
+		.container {
+			margin: 0 auto;
+			max-width: 100%;
+		}
 	</style>
 </head>
 
 <body>
-	<!-- <div class="header"><h1>DataTable (Server side) Custom Column Search </h1></div> -->
+	<div class="header"><h3>December 12, 2014</h3></div>
 	<div class="container">
 		<table id="voterdata" cellpadding="0" cellspacing="0" border="0" class="cell-border hover" width="100%">
 			<thead>
