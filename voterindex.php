@@ -9,12 +9,20 @@
 <head>
 	<title>Voter Data</title>
 
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"/>
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/scroller/1.4.0/css/scroller.dataTables.min.css"/>
-	 
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/scroller/1.4.0/js/dataTables.scroller.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.1.0/css/buttons.dataTables.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/scroller/1.4.0/css/scroller.dataTables.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.1.0/css/select.dataTables.min.css"/>
+ 
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.0/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.0/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.0/js/buttons.print.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/scroller/1.4.0/js/dataTables.scroller.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/select/1.1.0/js/dataTables.select.min.js"></script>
 
 	<script type="text/javascript" src="php_crud_api_transform.js"></script>
 	<script type="text/javascript" src="voter_config.js"></script>
@@ -46,12 +54,9 @@
 		<table id="voterdata" cellpadding="0" cellspacing="0" border="0" class="cell-border hover" width="100%">
 			<thead>
 				<tr>
-					<th>ID</th>
 					<th>Name</th>
 					<th>Details</th>
 					<th>Address</th>
-					<th>First</th>
-					<th>Street</th>
 				</tr>
 			</thead>
 			<thead>
@@ -59,31 +64,22 @@
 					<th>
 						Last&nbsp;Name:
 						<br>
-						<input type="text" id="name" class="search-input-text">
+						<input type="text" id="Name" class="search-input-text">
 						<br> First&nbsp;Name:
 						<br>
-						<input type="text" id="first" class="search-input-text">
+						<input type="text" id="First" class="search-input-text">
 					</th>
-					<th>(Enter Search Terms, Press Enter)</th>
-					<!--
-							<th>
-								<select id="address"  class="search-input-select">
-									<option value="">(Select a range)</option>
-									<option value="19-30">19 - 30</option>
-									<option value="31-66">31 - 66</option>
-								</select>
-							</th>
--->
+					<th>
+						(Enter Search Terms, Press Enter)
+					</th>
 					<th>
 						Street&nbsp;Number:
 						<br>
-						<input type="text" id="address" class="search-input-text">
+						<input type="text" id="Address" class="search-input-text">
 						<br> Street&nbsp;Name:
 						<br>
-						<input type="text" id="street" class="search-input-text">
+						<input type="text" id="Street" class="search-input-text">
 					</th>
-					<th></th>
-					<th></th>
 				</tr>
 			</thead>
 		</table>

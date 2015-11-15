@@ -5,54 +5,53 @@ $(document).ready(function() {
 
 	// using "scroller" datatables extension...
 	var dataTable = $('#voterdata').DataTable({
+		"select": true,
+		"buttons": [ "copy", "csv", "pdf", "print"],
+		"dom": "Blrtip",
 		"scroller": true, // use the scroller
 		"scrollY": 400, // depth of scroller row area
 		"scrollCollapse": true, // if not enough rows, then shrink row area
 		"lengthChange": false, // hide the page item/length control top left
 		"searching": false, // hide built-in search box top right
 		"deferRender": true, // only process rows that will show now
-		"columns": [{
-			"data": "ID"
-		}, {
-			"data": "Name"
-		}, {
-			"data": "Details"
-		}, {
-			"data": "Address"
-		}, {
-			"data": "First"
-		}, {
-			"data": "Street"
-		}],
+		// buttons text...
+		buttons: {
+			buttons: [
+				{ extend: 'copy', text: 'Copy All' },
+				'csv',
+				'pdf',
+				'print'
+			]
+		},
+		// what is each column...
+		// ... Database column names are case sensitive...
+		"columns": [
+			{
+				"data": "Name"
+			}, {
+				"data": "Details"
+			}, {
+				"data": "Address"
+			}
+		],
 		// what to do with each column...
-		// ... searchable to false since I'm handling search...
-		"columnDefs": [{ // id
-			"targets": [0],
-			"visible": false,
-			"searchable": false
-		}, { // name
-			"targets": [1],
-			"visible": true,
-			"searchable": false
-		}, { // details
-			"targets": [2],
-			"visible": true,
-			"searchable": false
-		}, { // address
-			"targets": [3],
-			"visible": true,
-			"searchable": false
-		}, { // first
-			"targets": [4],
-			"visible": false,
-			"searchable": false
-		}, { // street
-			"targets": [5],
-			"visible": false,
-			"searchable": false
-		}]
+		"columnDefs": [
+			{ // Name
+				"targets": [0],
+				"visible": true,
+				"searchable": false
+			}, { // Details
+				"targets": [1],
+				"visible": true,
+				"searchable": false
+			}, { // Address
+				"targets": [2],
+				"visible": true,
+				"searchable": false
+			}
+		]
 	});
-
+	
 	// get data ...
 	// server transform to json objects...
 	//findAll('voter_php_crud_api.php/voters?order=id&page=1,5000&transform=1');
@@ -69,6 +68,7 @@ $(document).ready(function() {
 				// ... server transform to json objects...
 				//dataTable.rows.add(response['voters']);
 				// ... local transform to json objects...
+				console.log(php_crud_api_transform(response)['voters']);
 				dataTable.rows.add(php_crud_api_transform(response)['voters']);
 				dataTable.draw();
 			},
@@ -85,34 +85,34 @@ $(document).ready(function() {
 			// server transform to json objects...
 			//var outPut = rootURL + "/voters?page=1,5000&transform=1";
 			// local transform to json objects...
-			var outPut = rootURL + "/voters?page=1,5000";
-			var n = $('#name').val().trim();
-			var f = $('#first').val().trim();
-			var a = $('#address').val().trim();
-			var s = $('#street').val().trim();
+			var outPut = rootURL + "/voters?columns=Name,Details,Address&page=1,5000";
+			var n = $('#Name').val().trim();
+			var f = $('#First').val().trim();
+			var a = $('#Address').val().trim();
+			var s = $('#Street').val().trim();
 			// collect filters and get ready to set order...
 			if (n !== "") {
-				outPut += "&filter[]=name,sw," + n;
-				n = "name";
+				outPut += "&filter[]=Name,sw," + n;
+				n = "Name";
 			}
 			if (f !== "") {
-				outPut += "&filter[]=first,sw," + f;
-				f = "first";
+				outPut += "&filter[]=First,sw," + f;
+				f = "First";
 			}
 			if (a !== "") {
-				outPut += "&filter[]=address,sw," + a;
-				a = "address";
+				outPut += "&filter[]=Address,sw," + a;
+				a = "Address";
 			}
 			if (s !== "") {
-				outPut += "&filter[]=street,sw," + s;
-				s = "street";
+				outPut += "&filter[]=Street,sw," + s;
+				s = "Street";
 			}
 			if ((n + f + a + s) !== "") {
 				outPut += "&satisfy=all";
 				// simple way to only join non-empty strings...
 				outPut += "&order=" + $.grep([n, f, a, s], Boolean).join(",");
 			} else {
-				outPut += "&order=id";
+				outPut += "&order=ID";
 			}
 			console.log(outPut);
 			findAll(outPut);
